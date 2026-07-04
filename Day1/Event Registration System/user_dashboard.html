@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard</title>
+
+<link rel="icon" href="images/dj.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="user_dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        🎵 Event Booking
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+
+        <a href="#" class="nav-link active"
+            onclick="showSection('home', this)">
+            Home
+        </a>
+
+        <a href="#" class="nav-link"
+            onclick="showSection('profile', this)">
+            Profile
+        </a>
+
+    </div>
+
+</nav>
+    <section class="hero-video">
+        <video autoplay muted loop playsinline>
+            <source src="videos/concert.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero-content">
+            <h1>Experience Live Music</h1>
+            <p>Book your favourite concerts now!</p>
+        </div>
+    </section>
+    <!-- HOME PAGE -->
+    <section id="home" class="page active ">
+
+        <h1>Available Concerts</h1>
+
+        <div class="card-container" id="concertContainer">
+
+        </div>
+
+    </section>
+
+
+    
+
+
+ 
+
+    <!-- ================= PROFILE ================= -->
+
+    <section id="profile" class="page">
+
+        <h1>My Profile</h1>
+
+        <div class="profile-card">
+
+            <h2>User Information</h2>
+
+            <p><strong>Name :</strong> <span id="profileName">-</span></p>
+
+            <p><strong>Email :</strong> <span id="profileEmail">-</span></p>
+
+            <p><strong>Phone :</strong> <span id="profilePhone">-</span></p>
+
+            <hr>
+
+            <h3>Booking Details</h3>
+
+            <p><strong>Status :</strong>
+
+                <span id="bookingStatus">
+
+                    ❌ Not Booked
+
+                </span>
+
+            </p>
+
+            <p><strong>Concert :</strong>
+
+                <span id="profileConcert">-</span>
+
+            </p>
+
+            
+
+            <p><strong>Payment :</strong>
+
+                <span id="profilePayment">Verified Successfully</span>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    
+
+    
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBooking()">&times;</span>
+
+        <h2>Concert Booking</h2>
+
+        <form id="bookingForm">
+
+            <input type="text" id="name" placeholder="Enter Full Name" required>
+
+            <input type="email" id="email" placeholder="Enter Email" required>
+
+            <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+
+            <select id="concertSelect" required>
+    <option value="">Select Concert</option>
+</select>
+
+            
+
+            <button type="submit" class="confirm-btn">
+                Confirm Booking
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closePaymentModal()">&times;</span>
+
+        <h2>💳 Payment</h2>
+
+        <input type="text" id="payConcertName" readonly>
+
+        <input type="text"
+               id="transactionId"
+               placeholder="Enter Transaction ID">
+
+        <select id="paymentMethod">
+            <option value="">Select Payment Method</option>
+            <option>UPI</option>
+            <option>Card</option>
+            <option>Net Banking</option>
+        </select>
+
+        <button onclick="confirmPayment()">
+            Confirm Payment
+        </button>
+
+    </div>
+</div>
+    <script src="user.js"></script>
+
+</body>
+
+</html>

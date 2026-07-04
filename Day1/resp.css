@@ -1,0 +1,36 @@
+.parent{
+    width: 600px;
+    height: 50vh;
+    background-color: aquamarine;
+    display: flex;
+    gap: 10px;
+}
+.parent div{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+@media (min-width:800px)and ( max-width:1200px) {
+    .parent{
+        background-color: black;
+    }
+    .parent div{
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+}
+}
+@media (min-width:500px) and ( max-width:600px) {
+    .parent{
+        background-color: red;
+        display: block;
+    }
+}
+
+@media (min-width:400px)and ( max-width:450px) {
+    .parent{
+        background-color: blue;
+        display: block;
+        height: 80vh;
+    }
+}

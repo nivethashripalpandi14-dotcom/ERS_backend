@@ -1,0 +1,69 @@
+.parent{
+    width:90%;
+    height:90vh;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.header,
+.footer{
+    height:15%;
+    background:limegreen;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.main{
+    flex:1;
+
+    display:flex;
+    gap:10px;
+}
+
+.sidebar{
+    width:15%;
+    background:limegreen;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.content{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.content1{
+    flex:1;
+    background:limegreen;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.content_bottom{
+    flex:1;
+
+    display:flex;
+    gap:10px;
+}
+
+.content2,
+.content3{
+    flex:1;
+    background:limegreen;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

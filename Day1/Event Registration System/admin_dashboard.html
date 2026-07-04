@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <head>
+        <title>Concert Dashboard</title>
+        <link rel="icon" href="images/concert.jpg" type="image/jpeg">
+    </head>
+    <link rel="stylesheet" href="admin_dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= SIDEBAR ================= -->
+        
+<button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<aside class="sidebar" id="sidebar">
+    <ul class="menu">
+        <li><a href="#" class="active" onclick="showSection('home', this); closeSidebar();">🏠 Home</a></li>
+
+        <li><a href="#" onclick="showSection('concerts', this); closeSidebar();">🎵 Concerts</a></li>
+
+        <li><a href="#" onclick="showSection('users', this); closeSidebar();">👤 Users</a></li>
+
+        <li><a href="#" onclick="showSection('bookings', this); closeSidebar();">🎫 Bookings</a></li>
+    </ul>
+</aside>
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- ================= HOME ================= -->
+
+            <section id="home" class="page active">
+
+                <h1>Dashboard</h1>
+
+                <div class="cards">
+
+                    <div class="dashboard-card">
+                        <h2 id="concertCount">0</h2>
+                        <p>Total Concerts</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h2 id="userCount">0</h2>
+                        <p>Total Users</p>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h2 id="bookingCount">0</h2>
+                        <p>Total Bookings</p>
+                    </div>
+
+
+
+                </div>
+
+            </section>
+
+            <!-- ================= CONCERTS =================  -->
+
+            <!-- <section id="concerts" class="page">
+
+    <div class="table-card">
+
+        <div class="header">
+            <h1>Concert Management</h1>
+
+            <button class="add-btn" onclick="openConcertModal()">
+                <i class="fa-solid fa-plus"></i>
+                Add Concert
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Concert</th>
+                        <th>Artist</th>
+                        <th>Venue</th>
+                        <th>Date</th>
+                        <th>Total Seats</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="concertTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section> -->
+            <section id="concerts" class="page">
+
+                <div class="table-card">
+
+                    <div class="header">
+                        <h1>Concert Management</h1>
+
+                        <button class="add-btn" onclick="openConcertModal()">
+                            <i class="fa-solid fa-plus"></i>
+                            Add Concert
+                        </button>
+                    </div>
+
+                    <div id="concertTable" class="card-container"></div>
+
+                </div>
+
+            </section> <!-- ================= USERS ================= -->
+
+            
+            <section id="users" class="page">
+
+                <div class="table-card">
+
+                    <h1>User Management</h1>
+
+                    <div id="userTable" class="card-container"></div>
+
+                </div>
+
+            </section> <!-- ================= BOOKINGS ================= -->
+
+
+            <section id="bookings" class="page">
+
+                <h1>Booking Management</h1>
+
+                <div id="bookingTable" class="card-container"></div>
+
+
+            </section>
+
+            <!-- ================= ADD / EDIT CONCERT MODAL ================= -->
+
+            <div class="modal" id="concertModal">
+
+                <div class="modal-content">
+
+                    <span class="close" onclick="closeConcertModal()">&times;</span>
+
+                    <h2 id="modalTitle">Add Concert</h2>
+
+                    <form id="concertForm">
+
+                        <input type="text" placeholder="Concert Name" required>
+
+                        <input type="text" placeholder="Artist Name" required>
+
+                        <input type="text" placeholder="Venue" required>
+
+                        <input type="date" required>
+                        <input type="text" placeholder="total seat" required>
+                        <input type="number" placeholder="Ticket Price" required>
+
+
+                        <button type="submit">Save Concert</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <!-- ================= VIEW MODAL ================= -->
+
+            <div class="modal" id="viewModal">
+
+                <div class="modal-content">
+
+                    <span class="close" onclick="closeViewModal()">&times;</span>
+
+                    <h2>Concert Details</h2>
+
+                    <p><strong>Concert :</strong> <span id="viewConcertName">Rock Night</span></p>
+
+                    <p><strong>Artist :</strong> <span id="viewArtist">Arijit Singh</span></p>
+
+                    <p><strong>Venue :</strong> <span id="viewVenue">Chennai</span></p>
+
+                    <p><strong>Date :</strong> <span id="viewDate">20-07-2026</span></p>
+
+                    <p><strong>Time :</strong> <span id="viewTime">7 PM</span></p>
+
+                    <p><strong>Price :</strong> <span id="viewPrice">₹1500</span></p>
+
+                </div>
+
+            </div>
+
+            <!-- ================= DELETE MODAL ================= -->
+
+            <div class="modal" id="deleteModal">
+
+                <div class="modal-content">
+
+                    <h2>Delete Concert</h2>
+
+                    <p>Are you sure you want to delete this concert?</p>
+
+                    <div class="buttons">
+
+                        <button class="delete-btn">
+
+                            Delete
+
+                        </button>
+
+                        <button class="cancel-btn" onclick="closeDeleteModal()">
+
+                            Cancel
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal" id="userViewModal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeUserViewModal()">&times;</span>
+
+                    <h2>User Details</h2>
+
+                    <p><strong>ID :</strong> <span id="viewUserId"></span></p>
+                    <p><strong>Name :</strong> <span id="viewUserName"></span></p>
+                    <p><strong>Email :</strong> <span id="viewUserEmail"></span></p>
+                    <p><strong>Phone :</strong> <span id="viewUserPhone"></span></p>
+                    <p><strong>City :</strong> <span id="viewUserCity"></span></p>
+                </div>
+            </div>
+            <div class="modal" id="userEditModal">
+                <div class="modal-content">
+
+                    <span class="close" onclick="closeUserEditModal()">&times;</span>
+
+                    <h2>Edit User</h2>
+
+                    <form id="userForm">
+
+                        <input type="text" id="editUserName" required>
+
+                        <input type="email" id="editUserEmail" required>
+
+                        <input type="text" id="editUserPhone" required>
+
+
+                        <button type="submit">Save User</button>
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal" id="userDeleteModal">
+
+                <div class="modal-content">
+
+                    <h2>Delete User</h2>
+
+                    <p>Are you sure you want to delete this user?</p>
+
+                    <div class="buttons">
+
+                        <button class="delete-btn" id="confirmUserDelete">
+                            Delete
+                        </button>
+
+                        <button class="cancel-btn" onclick="closeUserDeleteModal()">
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <script src="./admin.js"></script>
+
+
+            <!-- PAYMENT MODAL -->
+            <div id="paymentModal" class="modal">
+                <div class="modal-content">
+                </div>
+            </div>
+
+</body>
+
+</html>

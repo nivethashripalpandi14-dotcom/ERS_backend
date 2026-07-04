@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:url("https://cdn.wallpapersafari.com/24/74/zgeTuV.jpg");
+    background-size:cover;
+    background-position:center;
+    height:100vh;
+}
+
+.overlay{
+    width:100%;
+    height:100vh;
+    background:rgba(57, 55, 55, 0.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+    width:400px;
+    background:rgba(0,0,0,0.75);
+    padding:60px;
+    color:white;
+}
+
+.login-box h1{
+    margin-bottom:30px;
+    font-size:40px;
+}
+.login-box input{
+    width:100%;
+    height:55px;
+    border:none;
+    outline:none;
+    background:#333;
+    color:white;
+    padding-left:15px;
+    font-size:16px;
+    margin-bottom:16px;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box span{
+    position:absolute;
+    right:15px;
+    top:18px;
+    color:#b3b3b3;
+    cursor:pointer;
+}
+
+button{
+    width:100%;
+    height:50px;
+    background:#e50914;
+    color:white;
+    border:none;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:4px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.options{
+     
+    margin-top:15px;
+    display:flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    
+}
+.options input[type="checkbox"]{
+    weight: 18px;
+    height: 18px;
+
+}
+.options a{
+    color:#b3b3b3;
+    text-decoration:none;
+}
+
+.signup{
+    margin-top:50px;
+    color:#737373;
+    font-size:18px;
+}
+
+.signup a{
+    color:white;
+    text-decoration:none;
+}
+
+.captcha{
+    margin-top:20px;
+    color:#8c8c8c;
+    font-size:13px;
+    line-height:20px;
+}
+
+.captcha a{
+    color:#0071eb;
+    text-decoration:none;
+}
